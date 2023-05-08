@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    {% load static %} <!-- static 파일 로드 -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+    <!-- Project1 base CSS -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <title>Project1</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CKEditor -->
+    <script src="//cdn.ckeditor.com/4.21.0/full/ckeditor.js"></script>
+    <!-- CropperJS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <!-- Project1 base JS -->
+    <script src="{% static 'js/base.js' %}"></script>
+    <!-- Bootstrap JS -->
+<script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
