@@ -1,10 +1,38 @@
+<!-- progress.html -->
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
 {% include 'navbar.html' %}
 
 <div class="container">
   <h1>프로젝트 진행</h1>
   <p>우리가 진행한 방식에 대한 소개를 포함하는 섹션입니다</p>
-</div>
+  <p><a href="{% url 'progress_write' %}">글 작성</a></p>
+  
+  <!-- 여기에 작성된 글들을 보여주는 코드를 추가해야 합니다. -->
+  <h2>Codes</h2>
+    {% for content in code_contents %}
+        <div>
+        <h2>Code</h2>
+        <p>{{ content.code_content }}</p>
+        </div>
+    {% endfor %}
+
+    <h2>Texts</h2>
+    {% for content in text_contents %}
+        <div>
+        <h2>Text</h2>
+        <p>{{ content.text_content }}</p>
+        </div>
+    {% endfor %}
+
+    <h2>Images</h2>
+    {% for content in image_contents %}
+        <div>
+        <h2>Image</h2>
+        <img src="{{ content.image_content.url }}" alt="Image">
+        </div>
+    {% endfor %}
 
 {% endblock %}

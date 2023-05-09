@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>프로젝트 진행</h1>
+      <p>아래에 코드와 텍스트를 추가하시오.</p>
+
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ code_formset.management_form }}
+        {{ text_formset.management_form }}
+
+        <div id="code-form-set">
+          {% for form in code_formset %}
+            {{ form.code_content }}
+          {% endfor %}
+        </div>
+
+        <div id="text-form-set">
+          {% for form in text_formset %}
+            {{ form.text_content }}
+          {% endfor %}
+        </div>
+      </form>
+
+      <div id="empty-code-form" style="display:none;">
+        {{ code_formset.empty_form.code_content|attr:"class:code-content" }}
+      </div>
+      <div id="empty-text-form" style="display:none;">
+        {{ text_formset.empty_form.text_content|attr:"class:text-content" }}
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="d-flex flex-column align-items-end">
+        <button class="add-code-form btn btn-primary mt-3" type="button">코드 추가</button>
+        <button class="add-text-form btn btn-primary mt-3" type="button">텍스트 추가</button>
+        <button type="submit" class="btn btn-primary">제출</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    // Initialize CodeMirror instances.
+    var editors = {};
+  
+    function initEditors() {
+      $('.code-content').each(function() {
+        var id = $(this).attr('id');
+        if (!editors[id]) {
+          editors[id] = CodeMirror.fromTextArea(document.getElementById(id), {
+            mode: 'python',
+            lineNumbers: true,
+            theme: 'default',
+            indentUnit: 4
+          });
+        }
+      });
+  
+      $('.text-content').each(function() {
+        var id = $(this).attr('id');
+        if (!editors[id]) {
+          CKEDITOR.replace(id);
+        }
+      });
+    }
+  
+    initEditors();
+  
+    $('.add-code-form').click(function(){
+      var formIdx = parseInt($('#id_codes-TOTAL_FORMS').val());
+      $('#code-form-set').append($('#empty-code-form').html().replace(/__prefix__/g, formIdx));
+      $('#id_codes-TOTAL_FORMS').val(formIdx + 1);
+      initEditors();
+    });
+    
+    $('.add-text-form').click(function(){
+      var formIdx = parseInt($('#id_texts-TOTAL_FORMS').val());
+      $('#text-form-set').append($('#empty-text-form').html().replace(/__prefix__/g, formIdx));
+      $('#id_texts-TOTAL_FORMS').val(formIdx + 1);
+      initEditors();
+    });
+  
+    $('form').on('submit', function() {
+      $('.code-content').each(function() {
+        var id = $(this).attr('id');
+        $(this).val(editors[id].getValue());
+      });
+  
+      for (var id in editors) {
+        if (CKEDITOR.instances[id]) {
+          $('#' + id).val(CKEDITOR.instances[id].getData());
+        }
+      }
+    });
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>프로젝트 진행</h1>
+      <p>아래에 코드와 텍스트를 추가하시오.</p>
+
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ code_formset.management_form }}
+        {{ text_formset.management_form }}
+        {{ image_formset.management_form }}
+
+        <div id="common-form-set">
+          <!-- Code, Text, and Image forms will be inserted here -->
+        </div>
+
+        <button type="submit" class="btn btn-primary">제출</button>
+
+      </form>
+
+      <div id="empty-code-form" style="display:none;">
+        {{ code_formset.empty_form.order }}
+        {{ code_formset.empty_form }}
+      </div>
+
+      <div id="empty-text-form" style="display:none;">
+        {{ text_formset.empty_form.order }}
+        {{ text_formset.empty_form }}
+      </div>
+
+      <div id="empty-image-form" style="display:none;">
+        {{ image_formset.empty_form.order }}
+        {{ image_formset.empty_form }}
+      </div>
+
+    </div>
+    <div class="col-md-4">
+      <div class="d-flex flex-column align-items-end">
+        <button class="add-code-form">코드 추가</button>
+        <button class="add-text-form">텍스트 추가</button>
+        <button class="add-image-form">이미지 추가</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    var totalForms = 0;
+  
+    function addForm(type) {
+      var formSetDiv = document.getElementById('common-form-set');
+      var newFormHtml = document.getElementById('empty-' + type + '-form').innerHTML.replace(/__prefix__/g, totalForms);
+      var newFormDiv = document.createElement('div');
+      newFormDiv.className = type + '-form';
+      newFormDiv.innerHTML = newFormHtml;
+      formSetDiv.appendChild(newFormDiv);
+      document.getElementById('id_' + type + 's-TOTAL_FORMS').value = parseInt(totalForms) + 1;
+      var newId = 'id_' + type + 's-' + totalForms;
+      if (type == 'code') {
+        newId += '-code_content';
+        CodeMirror.fromTextArea(document.getElementById(newId), {
+          mode: 'python',
+          lineNumbers: true,
+          theme: 'ambiance',
+          indentUnit: 4,
+        });
+      } else if (type == 'text') {
+        newId += '-text_content';
+        CKEDITOR.replace(newId);
+        if (document.getElementById('id_' + type + 's-' + totalForms + '-text_image')) {
+          document.getElementById('id_' + type + 's-' + totalForms + '-text_image').addEventListener('change', function() {
+            readURL(this, 'id_' + type + 's-' + totalForms + '-image-preview');
+          });
+        }
+      } else if (type == 'image') {
+            newId += '-image_content';
+            // No additional setup required for image input
+        } 
+      totalForms += 1;
+    }
+  
+    $(document).ready(function() {
+      $('.add-code-form').click(function(){
+        addForm('code');
+      });
+  
+      $('.add-text-form').click(function(){
+        addForm('text');
+      });
+
+      $('.add-image-form').click(function(){
+        addForm('image');
+      });
+    });
+
+  </script>
+{% endblock %}
