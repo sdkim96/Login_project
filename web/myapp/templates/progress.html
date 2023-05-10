@@ -1,38 +1,63 @@
-<!-- progress.html -->
 {% extends 'base.html' %}
 {% load static %}
 
 {% block content %}
-{% include 'navbar.html' %}
+  {% include 'navbar.html' %}
 
-<div class="container">
-  <h1>프로젝트 진행</h1>
-  <p>우리가 진행한 방식에 대한 소개를 포함하는 섹션입니다</p>
-  <p><a href="{% url 'progress_write' %}">글 작성</a></p>
+    <style>
+    /* CSS code goes here */
+    textarea {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        resize: none;
+        min-height: 200px; /* set a minimum height */
+    }
+    </style>
   
-  <!-- 여기에 작성된 글들을 보여주는 코드를 추가해야 합니다. -->
-  <h2>Codes</h2>
-    {% for content in code_contents %}
-        <div>
-        <h2>Code</h2>
-        <p>{{ content.code_content }}</p>
-        </div>
-    {% endfor %}
+  <div class="container">
+    <h1>프로젝트 진행</h1>
+    <p>우리가 진행한 방식에 대한 소개를 포함하는 섹션입니다</p>
+    <p><a href="{% url 'progress_write' %}">글 작성</a></p>
 
-    <h2>Texts</h2>
-    {% for content in text_contents %}
-        <div>
-        <h2>Text</h2>
-        <p>{{ content.text_content }}</p>
-        </div>
+    <!-- Here is the loop over the whole_contents queryset -->
+    {% for content in whole_contents %}
+      <div>
+        {% if content.code_content %}
+          <!-- Add a textarea to display your code content -->
+          <textarea id="code{{ forloop.counter }}" readonly>{{ content.code_content }}</textarea>
+          <hr>
+        {% elif content.text_content %}
+          <!-- Use the striptags filter to remove HTML tags -->
+          <p>{{ content.text_content|striptags }}</p>
+          <hr>
+        {% elif content.image_content %}
+          <!-- Use MEDIA_URL to correctly display the image -->
+          <img src="{{ MEDIA_URL }}{{ content.image_content }}" alt="Image">
+          <hr>
+        {% endif %}
+      </div>
     {% endfor %}
+  </div>
+{% endblock %}
 
-    <h2>Images</h2>
-    {% for content in image_contents %}
-        <div>
-        <h2>Image</h2>
-        <img src="{{ content.image_content.url }}" alt="Image">
-        </div>
-    {% endfor %}
-
+{% block scripts%}
+  {{ whole_contents|json_script:"wholeContents" }}
+  <script>
+      // Get the data from the Django-generated JSON script tag
+      const contents = JSON.parse(document.getElementById('wholeContents').textContent);
+      // Apply CodeMirror to all the code textareas
+      window.onload = function() {
+        for (let i = 0; i < contents.length; i++) {
+          const editor = CodeMirror.fromTextArea(contents[i], {
+            lineNumbers: true,
+            mode: "python",
+            readOnly: true,
+            theme: "ambiance",
+            lineWrapping: true,
+          });
+        }
+      };
+  </script>
 {% endblock %}
