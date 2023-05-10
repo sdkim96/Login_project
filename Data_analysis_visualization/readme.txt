@@ -14,3 +14,7 @@
 
 5. busstop_total_population_monthly.ipynb
 월별 각 정류소의 시간대별 유동인구 데이터입니다.(가연)
+
+6. expenditure_analysis.ipynb
+관광객의 지출액을 분석&시각화하는 파일입니다.(지용)
+
