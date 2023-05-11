@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'myapp',
     'crispy_forms',
     'widget_tweaks',
-    'django_plotly_dash' #추가된거
+    # 'django_plotly_dash',
+    "django_plotly_dash.apps.DjangoPlotlyDashConfig" #추가된거
 ]
 
 MIDDLEWARE = [
@@ -134,12 +135,12 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'myapp/static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-PLOTLY_COMPONENTS = [
-    'dash_core_components',
-    'dash_html_components',
-    'dash_renderer',
-    'dpd_static_support',
-]
+# PLOTLY_COMPONENTS = [
+#     'dash_core_components',
+#     'dash_html_components',
+#     'dash_renderer',
+#     'dpd_static_support',
+# ]
 
 CHANNEL_LAYERS = {
     'default': {
@@ -150,3 +151,4 @@ CHANNEL_LAYERS = {
     },
 }
 
+DASH_APP_LOCATION = 'myapp.dash_apps'

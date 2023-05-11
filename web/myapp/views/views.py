@@ -3,6 +3,13 @@ from django.db.models import Max, Q
 from ..models import CodeContent, TextContent, ImageContent
 from django.contrib.contenttypes.models import ContentType
 from myapp.models import BaseContent, CodeContent, TextContent, ImageContent
+from django_plotly_dash import DjangoDash
+from dash import dcc, html
+from dash.dependencies import Input, Output
+import plotly.graph_objects as go
+import pandas as pd
+import chardet
+from .visualization.bus import get_merged_df
 
 
 # Create your views here.
@@ -47,9 +54,42 @@ def progress(request):
         'whole_contents': whole_contents,
     })
 
+app = DjangoDash('BusStations', add_bootstrap_links=True)
 
+app.layout = html.Div([
+    dcc.Dropdown(
+        id='top-n-stations',
+        options=[{'label': i, 'value': i} for i in range(1, 31)],
+        value=1
+    ),
+    dcc.Graph(id='bus-stations-graph')
+])
 
+@app.callback(
+    Output('bus-stations-graph', 'figure'),
+    [Input('top-n-stations', 'value')]
+)
+def update_graph(top_n):
+    merged_df = get_merged_df()
+    # Get the top N crowded stations
+    top_stations = merged_df.nlargest(top_n, '총승객수')
 
+    # Create a new figure and plot the data
+    figure = go.Figure(
+        data=[
+            go.Scattergeo(
+                lat=top_stations['Y좌표'],
+                lon=top_stations['X좌표'],
+                text=top_stations['정류소명'],
+                mode='markers',
+                marker=dict(
+                    size=top_stations['총승객수']/100000,  # Adjust the size of markers
+                    color='red',
+                    opacity=0.4
+                )
+            )
+        ]
+    )
 
 def visualization(request):
     return render(request, 'visualization.html')
