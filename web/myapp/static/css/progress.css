@@ -1,0 +1,5 @@
+.code-textarea {
+    height: 400px; /* set the height of the textarea */
+    width: 100%; /* set the width of the textarea to 100% of its container */
+    resize: vertical; /* allow vertical resizing */
+  }

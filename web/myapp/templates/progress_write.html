@@ -30,17 +30,14 @@
       </form>
 
       <div id="empty-code-form" style="display:none;">
-        {{ code_formset.empty_form.order }}
         {{ code_formset.empty_form }}
       </div>
 
       <div id="empty-text-form" style="display:none;">
-        {{ text_formset.empty_form.order }}
         {{ text_formset.empty_form }}
       </div>
 
       <div id="empty-image-form" style="display:none;">
-        {{ image_formset.empty_form.order }}
         {{ image_formset.empty_form }}
       </div>
 
@@ -56,53 +53,57 @@
 </div>
 
 <script>
-    var totalForms = 0;
-  
-    function addForm(type) {
-      var formSetDiv = document.getElementById('common-form-set');
-      var newFormHtml = document.getElementById('empty-' + type + '-form').innerHTML.replace(/__prefix__/g, totalForms);
-      var newFormDiv = document.createElement('div');
-      newFormDiv.className = type + '-form';
-      newFormDiv.innerHTML = newFormHtml;
-      formSetDiv.appendChild(newFormDiv);
-      document.getElementById('id_' + type + 's-TOTAL_FORMS').value = parseInt(totalForms) + 1;
-      var newId = 'id_' + type + 's-' + totalForms;
-      if (type == 'code') {
-        newId += '-code_content';
-        CodeMirror.fromTextArea(document.getElementById(newId), {
-          mode: 'python',
-          lineNumbers: true,
-          theme: 'ambiance',
-          indentUnit: 4,
-        });
-      } else if (type == 'text') {
-        newId += '-text_content';
-        CKEDITOR.replace(newId);
-        if (document.getElementById('id_' + type + 's-' + totalForms + '-text_image')) {
-          document.getElementById('id_' + type + 's-' + totalForms + '-text_image').addEventListener('change', function() {
-            readURL(this, 'id_' + type + 's-' + totalForms + '-image-preview');
-          });
-        }
-      } else if (type == 'image') {
-            newId += '-image_content';
-            // No additional setup required for image input
-        } 
-      totalForms += 1;
-    }
-  
-    $(document).ready(function() {
-      $('.add-code-form').click(function(){
-        addForm('code');
-      });
-  
-      $('.add-text-form').click(function(){
-        addForm('text');
-      });
+  var totalForms = 0;
 
-      $('.add-image-form').click(function(){
-        addForm('image');
+  function addForm(type) {
+    var formSetDiv = document.getElementById('common-form-set');
+    var newFormHtml = document.getElementById('empty-' + type + '-form').innerHTML.replace(/__prefix__/g, totalForms);
+    var newFormDiv = document.createElement('div');
+    newFormDiv.className = type + '-form';
+    newFormDiv.innerHTML = newFormHtml;
+    formSetDiv.appendChild(newFormDiv);
+    document.getElementById('id_' + type + 's-TOTAL_FORMS').value = parseInt(totalForms) + 1;
+    var newId = 'id_' + type + 's-' + totalForms;
+    if (type == 'code') {
+      newId += '-code_content';
+      CodeMirror.fromTextArea(document.getElementById(newId), {
+        mode: 'python',
+        lineNumbers: true,
+        theme: 'ambiance',
+        indentUnit: 4,
       });
+    } else if (type == 'text') {
+      newId += '-text_content';
+      CKEDITOR.replace(newId);
+      if (document.getElementById('id_' + type + 's-' + totalForms + '-text_image')) {
+        document.getElementById('id_' + type + 's-' + totalForms + '-text_image').addEventListener('change', function() {
+          readURL(this, 'id_' + type + 's-' + totalForms + '-image-preview');
+        });
+      }
+    } else if (type == 'image') {
+          newId += '-image_content';
+          // No additional setup required for image input
+      } 
+
+    // Set the label field
+    document.getElementById('id_' + type + 's-' + totalForms + '-label').value = totalForms;
+
+    totalForms += 1;
+  }
+
+  $(document).ready(function() {
+    $('.add-code-form').click(function(){
+      addForm('code');
     });
 
-  </script>
+    $('.add-text-form').click(function(){
+      addForm('text');
+    });
+
+    $('.add-image-form').click(function(){
+      addForm('image');
+    });
+  });    
+</script>
+
 {% endblock %}

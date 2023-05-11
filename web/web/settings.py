@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'myapp',
     'crispy_forms',
-    'widget_tweaks'
+    'widget_tweaks',
+    # 'django_plotly_dash',
+    "django_plotly_dash.apps.DjangoPlotlyDashConfig" #추가된거
 ]
 
 MIDDLEWARE = [
@@ -52,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'  # Add this line
 
 ROOT_URLCONF = 'web.urls'
 
@@ -116,6 +120,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -127,3 +134,21 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'myapp/static')]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# PLOTLY_COMPONENTS = [
+#     'dash_core_components',
+#     'dash_html_components',
+#     'dash_renderer',
+#     'dpd_static_support',
+# ]
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
+
+DASH_APP_LOCATION = 'myapp.dash_apps'
