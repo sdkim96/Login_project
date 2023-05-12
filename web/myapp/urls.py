@@ -10,6 +10,7 @@ from django.conf.urls.static import static
 from django_plotly_dash.views import add_to_session
 from django.views.generic import TemplateView
 from .views.visualization_views import map
+from .views.visualization_views import map_01
 
 
 #  앱의 URL 패턴을 정의하는 파일, URL 요청을 뷰 함수와 연결하는 역할을 함
@@ -24,6 +25,8 @@ urlpatterns = [
     path('visualization/', visualization, name='visualization'),
     path('django_plotly_dash/', include('django_plotly_dash.urls')),
     path('map/', map, name='map'),
+    path('map_01/', map_01, name='map_01')
+
     # path('BusStations/_dash-update-component', add_to_session, name='session_state'),
     # path('BusStations/', TemplateView.as_view(template_name='BusStations.html'), name="BusStations"),
 ]

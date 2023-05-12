@@ -3,10 +3,26 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-<div class="container" id="home-container">
-  <h1>홈</h1>
-  <p>주요 목표와 내용을 간략하게 소개하는 히어로 섹션입니다.</p>
-  <iframe id='map' src="{% url 'map' %}" width='100%' height='600'></iframe>
-  {% plotly_app name="BusStations" %}
+<div class="introduce-content" id="introduce-content">
+  <h1>시각화 자료</h1>
+  <p>각종 다양한 시각화 자료입니다</p>
+</div> 
+<div class="dash-app-content" id="home-container">
+  <iframe src="/django_plotly_dash/app/BusStations/" style="
+    position: absolute;
+    top: 300px;
+    left: 200px;
+    width: 600px;
+    height: 600px;
+    " frameborder="0" sandbox="allow-downloads allow-scripts allow-same-origin allow-modals allow-popups allow-popups-to-escape-sandbox"></iframe>
+
+    <!-- 추가된 iframe -->
+    <iframe src="/map_01" style="
+    position: absolute;
+    top: 300px;
+    right: 200px;
+    width: 600px;
+    height: 583px;
+    " frameborder="0" sandbox="allow-downloads allow-scripts allow-same-origin allow-modals allow-popups allow-popups-to-escape-sandbox"></iframe>
 </div>
 {% endblock %}
