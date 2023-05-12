@@ -135,12 +135,12 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'myapp/static')]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# PLOTLY_COMPONENTS = [
-#     'dash_core_components',
-#     'dash_html_components',
-#     'dash_renderer',
-#     'dpd_static_support',
-# ]
+PLOTLY_COMPONENTS = [
+    'dash_core_components',
+    'dash_html_components',
+    'dash_renderer',
+    'dpd_components'
+]
 
 CHANNEL_LAYERS = {
     'default': {

@@ -24,3 +24,10 @@ class TextContent(BaseContent):
 class ImageContent(BaseContent):
     image_content = models.ImageField(upload_to='images/')
 
+class BusData(models.Model):
+    total_ridership = models.IntegerField()
+    route_number = models.CharField(max_length=200)
+    standard_bus_station_id = models.IntegerField()
+    station_name = models.CharField(max_length=200)
+    x_coord = models.FloatField()
+    y_coord = models.FloatField()
