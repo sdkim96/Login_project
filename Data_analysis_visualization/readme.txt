@@ -21,6 +21,6 @@
 7. seoul_tour_attraction_analysis.ipynb
 서울 관광지들의 위치를 지도시각화와 클러스터링으로 분석합니다.(지용)
 
-8. sankey_diagram.ipynb
+8. sankey_diagram(directory)
 서울 지역별 유입, 유출 인구를 sankey diagram으로 시각화 합니다.(지용)
 
