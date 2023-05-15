@@ -2,6 +2,11 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from ..models import MyUser
+from django.contrib.auth import logout
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
 
 def login_view(request):
     if request.method == 'POST':

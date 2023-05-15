@@ -1,8 +1,13 @@
 from django.forms.models import model_to_dict
 from myapp.models import CodeContent, TextContent, ImageContent, BaseContent
 from django.shortcuts import render
+from django.shortcuts import redirect
+from django.contrib import messages
 
 def progressing(request):
+    if not request.user.is_authenticated:
+        messages.warning(request, '권한이 없습니다. 로그인하시고 접속해주세요.')
+        return redirect('login')
     # Get the latest goes value from all content types
     all_contents = sorted(
         list(CodeContent.objects.filter(user=request.user)) + 

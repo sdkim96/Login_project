@@ -10,4 +10,11 @@
     <button type="submit">로그인</button>
   </form>
   <p>아직 회원이 아니신가요? <a href="{% url 'register' %}">회원 가입</a></p>
+  {% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 {% endblock %}
