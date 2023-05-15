@@ -4,7 +4,7 @@ from .views.about_views import about
 from .views.progress_views import progressing
 from .views.visualization_views import visualization
 from .views.progress_write_views import progress_view
-from .views.register_login import login_view, register
+from .views.register_login import login_view, register, logout_view
 from django.conf import settings
 from django.conf.urls.static import static
 from django_plotly_dash.views import add_to_session
@@ -21,6 +21,7 @@ urlpatterns = [
     path('progress/', progressing, name='progress'),
     path('progress/write', progress_view, name='progress_write'),
     path('login/', login_view, name='login'),
+    path('logout/', logout_view, name='logout'),
     path('register/', register, name='register'),
     path('visualization/', visualization, name='visualization'),
     path('django_plotly_dash/', include('django_plotly_dash.urls')),
