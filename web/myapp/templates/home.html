@@ -1,7 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block css %}
+  {% load static %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+  <style>
+    #section1 {
+      background-image: url("{% static 'image/sec1_img0.jpg' %}");
+      background-size:cover;
+      color: white;
+      text-align: right;
+    }
+
+    #section3 {
+      background-image: url("{% static 'image/sec03_img0.png' %}");
+    }
+  </style>
 {% endblock %}
 
 {% block content %}
@@ -11,9 +24,8 @@
 <div class="section" id="section1">
   <div class="sec_inner">
     <div class="text_area">
-      <h2 class="sec_tit">프로젝트 소개</h2>
-      <p class="sec_desc">우리 LOGIN팀의 방향과 목표, 데이터를 어떻게 처리한지에 대한 큰 방향성을 보여주는 탭입니다.<br>
-        아래 아이콘을 눌러 프로젝트 소개탭으로 넘어가세요.
+      <h2 class="sec_tit">프로젝트 소개<br>방향과 목표.<br>
+        아래 아이콘을 눌러 프로젝트 소개탭으로 넘어가세요.</h2>
       </p>
     </div>
   </div>
@@ -60,6 +72,9 @@
 <!-- 데이터 시각화 섹션 -->
 <div class="section" id="section3">
   <div class="sec_inner">
+    <div class="img_area">
+      <img src="{% static 'image/sec03_img1.png' %}">
+    </div>
     <div class="text_area">
       <h2 class="sec_tit">데이터 시각화</h2>
       <p class="sec_desc">프로젝트에서 수집하거나 생성한 데이터를 시각화하여 보여주는 섹션입니다.</p>
