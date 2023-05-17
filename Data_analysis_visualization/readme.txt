@@ -18,7 +18,7 @@
 6. expenditure_analysis.ipynb
 관광객의 지출액을 분석&시각화하는 파일입니다.(지용)
 
-7. seoul_tour_attraction_analysis.ipynb
+7. tour_attraction_clustering.ipynb
 서울 관광지들의 위치를 지도시각화와 클러스터링으로 분석합니다.(지용)
 
 8. sankey_diagram(directory)
