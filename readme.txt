@@ -61,6 +61,7 @@
                 - 역별 시간대별 버스 승하차 정보 - http://data.seoul.go.kr/dataList/OA-12913/S/1/datasetView.do
                 - 지하철 호선별 시간대별 승하차 - http://data.seoul.go.kr/dataList/OA-12921/F/1/datasetView.do
                 - 지하철 위치정보 - https://www.data.go.kr/data/15099316/fileData.do?recommendDataYn=Y
+                - 서울시 역사마스터 정보 - https://data.seoul.go.kr/dataList/OA-21232/S/1/datasetView.do
         - 숙박업 관련정보 (크롤링)
                 - 서울시 숙박업 인허가 정보리스트 수집 - https://data.seoul.go.kr/dataList/OA-16044/S/1/datasetView.do
                 - 네이버 지도 - https://map.naver.com/v5)
