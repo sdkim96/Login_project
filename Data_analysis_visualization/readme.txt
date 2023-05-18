@@ -18,7 +18,7 @@
 6. expenditure_analysis.ipynb
 관광객의 지출액을 분석&시각화하는 파일입니다.(지용)
 
-7. seoul_tour_attraction_analysis.ipynb
+7. tour_attraction_clustering.ipynb
 서울 관광지들의 위치를 지도시각화와 클러스터링으로 분석합니다.(지용)
 
 8. sankey_diagram(directory)
@@ -28,9 +28,11 @@
 9. subway_station_info.ipynb
 지하철 승하차 인구데이터와 위치 데이터를 병합해 전처리하는 과정을 담은 파일입니다. (가연)
 
-10. bus_station_info.ipynb
-전처리된 버스, 지하철 데이터를 병합해 새로운 특성을 추가하고 시각화한 파일입니다. (가연)
+10. transport_merging.ipynb
+전처리된 버스, 지하철 데이터를 병합하는 과정을 담은 파일입니다. (가연)
 
 11. correlation_analysis.ipynb
 지역별 검색수와 해당지역 방문자수의 상관관계를 구해보았습니다.(지용)
 
+12. transport_tourist_statistics_around_accommodation.ipynb
+숙박업소의 위치와 관련정보를 가진 데이터테이블에 숙박업소 주변 교통, 관광 통계정보를 새로운 파생변수로 추가하고 결과파일을 저장하는 과정을 담은 파일입니다.(가연)

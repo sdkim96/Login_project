@@ -9,9 +9,10 @@
         - 통계 및 기계학습? 분석을 통해 '숙박업 비지니스 창출' 관련 인사이트 도출
         - 프로젝트 소개 페이지 및 인사이트 표출(개발코드 및 분석그림) 웹 페이지 개발
 
-* 역할분담 (진행중)
+* 역할분담 (상시 업데이트)
         - 분석기획: 전 인원
         - 웹크롤링: 김만기(네이버 지도), 신호철(야놀자 호텔), 김성진(야놀자 모텔)
+        - DB 구축: 김만기
         - 데이터분석: 정지용, 이가연, 신호철, 김성진, 김만기
         - 웹개발: 김성동
 
@@ -61,6 +62,7 @@
                 - 역별 시간대별 버스 승하차 정보 - http://data.seoul.go.kr/dataList/OA-12913/S/1/datasetView.do
                 - 지하철 호선별 시간대별 승하차 - http://data.seoul.go.kr/dataList/OA-12921/F/1/datasetView.do
                 - 지하철 위치정보 - https://www.data.go.kr/data/15099316/fileData.do?recommendDataYn=Y
+                - 서울시 역사마스터 정보 - https://data.seoul.go.kr/dataList/OA-21232/S/1/datasetView.do
         - 숙박업 관련정보 (크롤링)
                 - 서울시 숙박업 인허가 정보리스트 수집 - https://data.seoul.go.kr/dataList/OA-16044/S/1/datasetView.do
                 - 네이버 지도 - https://map.naver.com/v5)
