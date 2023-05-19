@@ -1,44 +1,36 @@
 :root {
-    --primary-color: #FDE74C; /* 개나리색 */
-  }
-  
-  body {
-    font-family: 'Noto Sans KR', sans-serif;
-    background-color: white;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
-  }
-  
-  .navbar {
-    background-color: var(--primary-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-  
-  .navbar .nav-link {
-    color: #333;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    transition: color 0.3s;
-  }
-  
-  .navbar .nav-link:hover {
-    color: #000;
-  }
-  
-  .navbar-toggler {
-    border: none;
-  }
-  
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(0, 0, 0, 0.5)' strokeLinecap='round' strokeMiterlimit='10' strokeWidth='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-  }
+  --primary-color: #5B4444; 
+}
 
-  .dash-app-content {
-    height: 800px;
-  }
+body {
+font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+.navbar { 
+  background-color: #b3dfc5;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-brand {
+  margin-left: 10px;
+}
+
+.navbar .navbar-nav.ms-auto {
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  right: 0;
+  left: auto;
+}
+
+.dash-app-content {
+  height: 800px;
+}

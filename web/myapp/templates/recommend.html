@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'navbar.html' %}
+<div class="introduce-content" id="introduce-content">
+  <h1>시각화 자료</h1>
+  <p>컨설팅 서비스입니다.</p>
+</div> 
+<form id="hotel-grade-form">
+    <label for="capital">자본금:</label><br>
+    <input type="number" id="capital" name="capital"><br>
+    <label for="tags">태그:</label><br>
+
+    <input type="checkbox" id="wifi" name="tags" value="wifi">
+    <label for="wifi">와이파이</label><br>
+    
+    <input type="checkbox" id="parking" name="tags" value="parking">
+    <label for="parking">주차가능</label><br>
+    
+    <input type="checkbox" id="fitness" name="tags" value="fitness">
+    <label for="fitness">피트니스</label><br>
+    
+    <input type="checkbox" id="desk24" name="tags" value="desk24">
+    <label for="desk24">24시간 데스크</label><br>
+    
+    <input type="checkbox" id="pool" name="tags" value="pool">
+    <label for="pool">수영장</label><br>
+    
+    <input type="checkbox" id="sauna" name="tags" value="sauna">
+    <label for="sauna">사우나</label><br>
+    
+    <input type="checkbox" id="nonSmokingRooms" name="tags" value="nonSmokingRooms">
+    <label for="nonSmokingRooms">객실금연</label><br>
+    
+    <input type="checkbox" id="amenities" name="tags" value="amenities">
+    <label for="amenities">어메니티</label><br>
+    
+    <input type="checkbox" id="breakfast" name="tags" value="breakfast">
+    <label for="breakfast">조식운영</label><br>
+    
+    <input type="checkbox" id="luggageStorage" name="tags" value="luggageStorage">
+    <label for="luggageStorage">수화물보관</label><br>
+    
+    <input type="checkbox" id="laptopRental" name="tags" value="laptopRental">
+    <label for="laptopRental">노트북대여</label><br>
+    
+    <input type="checkbox" id="paidLaundry" name="tags" value="paidLaundry">
+    <label for="paidLaundry">유료세탁</label><br>
+    
+    <input type="checkbox" id="smokingArea" name="tags" value="smokingArea">
+    <label for="smokingArea">흡연구역</label><br>
+    
+    <input type="checkbox" id="business" name="tags" value="business">
+    <label for="business">비즈니스</label><br>
+    
+    <input type="checkbox" id="restaurant" name="tags" value="restaurant">
+    <label for="restaurant">레스토랑</label><br>
+    
+
+
+    <!-- 위와 같은 방식으로 더 많은 태그를 추가할 수 있습니다. -->
+    <input type="button" value="계산" onclick="calculateHotelGrade()">
+    
+</form>
+
+<div id="hotel-grade-result"></div>
+
+<form id="hotel-location-form">
+    <label for="competitor">경쟁업소 수:</label><br>
+    <input type="number" id="competitor" name="competitor"><br>
+    <!-- 위와 같은 방식으로 더 많은 입력을 추가할 수 있습니다. -->
+    <input type="button" value="계산" onclick="calculateHotelLocation()">
+</form>
+
+<div id="hotel-location-result"></div>
+
+<form id="hotel-name-form">
+    <label for="name-preference">원하는 느낌의 이름:</label><br>
+    <input type="text" id="name-preference" name="name-preference"><br>
+    <input type="button" value="계산" onclick="generateHotelName()">
+</form>
+
+<div id="hotel-name-result"></div>
+
+{% block js %}
+  <script src="{% static 'js/recommend.js' %}"></script>
+{% endblock %}
+{% endblock %}

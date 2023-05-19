@@ -39,7 +39,28 @@ class Map_01(models.Model):
     x_coord = models.FloatField()
     y_coord = models.FloatField()
 
-
-
+class Recommend_02(models.Model):
+    hotel_name = models.CharField(max_length=255)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
+    competing_hotels_count = models.IntegerField()
+    competing_hotels_min_distance = models.FloatField()
+    competing_hotels_max_distance = models.FloatField()
+    competing_hotels_avg_distance = models.FloatField()
+    bus_stops_count = models.IntegerField()
+    subway_stations_count = models.IntegerField()
+    nearest_bus_stop_distance = models.FloatField()
+    avg_bus_stop_distance = models.FloatField()
+    nearest_subway_station_distance = models.FloatField()
+    avg_subway_station_distance = models.FloatField()
+    monthly_average_boarding_traffic = models.FloatField()
+    monthly_average_alighting_traffic = models.FloatField()
+    monthly_total_traffic = models.FloatField()
+    tourist_spots_count = models.IntegerField()
+    shopping_malls_count = models.IntegerField()
+    nearest_tourist_spot_distance = models.FloatField()
+    avg_tourist_spot_distance = models.FloatField()
+    nearest_shopping_mall_distance = models.FloatField()
+    avg_shopping_mall_distance = models.FloatField()
     
 
