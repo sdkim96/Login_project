@@ -39,3 +39,6 @@
 
 13. Hotel_histogram&selection.ipynb
 호텔선정을 위한 영향요인들을 시각화 한후 조건을 설정해 호텔을 걸러내는 코드를 만들었습니다. (지용)
+
+14. Clustering_hotel.ipynb
+호텔 위치를 K-means로 클러스터링한후 지도에 위치, 밀도 시각화 하였습니다. (지용)
