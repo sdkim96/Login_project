@@ -10,14 +10,14 @@
 }
 
 #section2 {
-    background-color: white;
+    background-color: #CCE6DC;
     text-align: center;
-    color: black; /* To make the text visible on the black background */
+    color: var(--primary-color); /* To make the text visible on the black background */
 }
 
 #section3 {
-    background-color: black;
-    color: white;
+    color: var(--primary-color);
+    color: #CCE6DC;
     text-align: center;
 }
 
