@@ -74,3 +74,6 @@
                         - 지역별 검색건수 - https://datalab.visitkorea.or.kr/datalab/portal/bda/getDomInqCnt.do
                         - 지역별 유입,유출 방문객 - https://datalab.visitkorea.or.kr/datalab/portal/loc/getAreaDataForm.do# 
                         - 관광지 목록(위치) - https://datalab.visitkorea.or.kr/datalab/portal/loc/getTourLocalDataForm.do
+         - 호텔매출 관련 정보
+                - 통계청 https://kostat.go.kr/ansk/     
+                        검색어: 호텔매출
