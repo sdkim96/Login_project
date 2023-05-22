@@ -3,7 +3,7 @@ from .views.home_views import home
 from .views.about_views import about
 from .views.progress_views import progressing
 from .views.visualization_views import visualization
-from .views.recommend_views import recommend
+from .views.recommend_views import recommend, recommend_02, recommend_03 
 from .views.progress_write_views import progress_view
 from .views.register_login import login_view, register, logout_view
 from django.conf import settings
@@ -28,7 +28,9 @@ urlpatterns = [
     path('recommend/', recommend, name='recommend'),
     path('django_plotly_dash/', include('django_plotly_dash.urls')),
     path('map/', map, name='map'),
-    path('map_01/', map_01, name='map_01')
+    path('map_01/', map_01, name='map_01'),
+    path('recommend_02/', recommend_02, name='recommend_02'),
+    path('recommend_03/', recommend_03, name='recommend_03'),
     
 
     # path('BusStations/_dash-update-component', add_to_session, name='session_state'),

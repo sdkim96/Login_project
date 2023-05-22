@@ -66,23 +66,34 @@
 <div id="hotel-grade-result"></div>
 
 <form id="hotel-location-form">
-    <label for="competitor">경쟁업소 수:</label><br>
-    <input type="number" id="competitor" name="competitor"><br>
+    <label for="competitor">경쟁업소_수(1km내):</label><br>
+    <input type="number" id="competitor" name="recommend2" placeholder="보다 적은"><br>
+    <label for="competitor">버스정류장_수(1km내):</label><br>
+    <input type="number" id="bus" name="recommend2" placeholder="보다 많은"><br>
+    <label for="competitor">지하철역_수(1km내):</label><br>
+    <input type="number" id="subway" name="recommend2" placeholder="보다 많은"><br>
+    <label for="competitor">교통유동인구_월평균승하차총계(1km내):</label><br>
+    <input type="number" id="population" name="recommend2" placeholder="보다 많은" ><br>
+    <label for="competitor">관광지_수(1km내):</label><br>
+    <input type="number" id="attraction" name="recommend2" placeholder="보다 많은"><br>
+    <label for="competitor">쇼핑몰_수(1km내):</label><br>
+    <input type="number" id="shopping" name="recommend2" placeholder="보다 많은"><br>
     <!-- 위와 같은 방식으로 더 많은 입력을 추가할 수 있습니다. -->
-    <input type="button" value="계산" onclick="calculateHotelLocation()">
+    <input type="button" value="제출" onclick="calculateHotelLocation()">
 </form>
 
 <div id="hotel-location-result"></div>
 
 <form id="hotel-name-form">
     <label for="name-preference">원하는 느낌의 이름:</label><br>
-    <input type="text" id="name-preference" name="name-preference"><br>
-    <input type="button" value="계산" onclick="generateHotelName()">
+    <input type="button" value="출력" onclick="generateHotelName()">
 </form>
 
 <div id="hotel-name-result"></div>
 
 {% block js %}
-  <script src="{% static 'js/recommend.js' %}"></script>
+  <script src="{% static 'js/recommend1.js' %}"></script>
+  <script src="{% static 'js/recommend2.js' %}"></script>
+  <script src="{% static 'js/recommend3.js' %}"></script>
 {% endblock %}
 {% endblock %}
