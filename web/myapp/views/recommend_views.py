@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Q
 import json, openai
 
-openaiKey = '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'
+openaiKey = ''
 
 @csrf_exempt
 def recommend_02(request):
