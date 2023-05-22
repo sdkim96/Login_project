@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from myapp.models import Recommend_02
+from myapp.models import Recommend_02new
 import pandas as pd
 import os
 import numpy as np
@@ -16,11 +16,11 @@ class Command(BaseCommand):
         df = pd.read_excel(filepath)
 
         # Replace NaN values with empty string ('') in the DataFrame
-        df = df.replace(np.nan, '', regex=True)
+        
 
         # Iterate over the rows of the DataFrame and create Recommend_02 objects
         for index, row in df.iterrows():
-            recommend_02 = Recommend_02(
+            recommend_02 = Recommend_02new(
                 hotel_name=row['이름'],
                 latitude=row['위도'],
                 longitude=row['경도'],
@@ -43,6 +43,7 @@ class Command(BaseCommand):
                 avg_tourist_spot_distance=row['관광지_평균거리(1km내)'],
                 nearest_shopping_mall_distance=row['쇼핑몰_최단거리(1km내)'],
                 avg_shopping_mall_distance=row['쇼핑몰_평균거리(1km내)'],
+                label=row['label']
             )
             recommend_02.save()
 

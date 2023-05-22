@@ -4,8 +4,13 @@
     {% load static %}
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    {% csrf_token %}
+    <script type="text/javascript">
+    var csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+    </script>
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
     <!-- Project1 base CSS -->
