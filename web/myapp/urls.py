@@ -12,6 +12,7 @@ from django_plotly_dash.views import add_to_session
 from django.views.generic import TemplateView
 from .views.visualization_views import map
 from .views.visualization_views import map_01
+from .views.visualization_views import gangnam_sankey
 
 
 #  앱의 URL 패턴을 정의하는 파일, URL 요청을 뷰 함수와 연결하는 역할을 함
@@ -29,6 +30,7 @@ urlpatterns = [
     path('django_plotly_dash/', include('django_plotly_dash.urls')),
     path('map/', map, name='map'),
     path('map_01/', map_01, name='map_01'),
+    path('sankey_01/', gangnam_sankey, name='sankey_01'),
     path('recommend_02/', recommend_02, name='recommend_02'),
     path('recommend_03/', recommend_03, name='recommend_03'),
     

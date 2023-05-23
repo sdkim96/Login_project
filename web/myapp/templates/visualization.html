@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load plotly_dash %}
-
 {% block content %}
 {% include 'navbar.html' %}
 <div class="introduce-content" id="introduce-content">
@@ -9,20 +8,21 @@
 </div> 
 <div class="dash-app-content" id="home-container">
   <iframe src="/django_plotly_dash/app/BusStations/" style="
-    position: absolute;
-    top: 300px;
-    left: 200px;
-    width: 600px;
-    height: 600px;
-    " frameborder="0" sandbox="allow-downloads allow-scripts allow-same-origin allow-modals allow-popups allow-popups-to-escape-sandbox"></iframe>
+  position: absolute;
+  top: 300px;
+  left: 200px;
+  width: 600px;
+  height: 600px;
+  " frameborder="0" sandbox="allow-downloads allow-scripts allow-same-origin allow-modals allow-popups allow-popups-to-escape-sandbox"></iframe>
 
-    <!-- 추가된 iframe -->
-    <iframe src="/map_01" style="
-    position: absolute;
-    top: 300px;
-    right: 200px;
-    width: 600px;
-    height: 583px;
-    " frameborder="0" sandbox="allow-downloads allow-scripts allow-same-origin allow-modals allow-popups allow-popups-to-escape-sandbox"></iframe>
+  <!-- 추가된 iframe -->
+  <iframe src="/map_01" style="
+  position: absolute;
+  top: 300px;
+  right: 200px;
+  width: 600px;
+  height: 583px;
+  " frameborder="0" sandbox="allow-downloads allow-scripts allow-same-origin allow-modals allow-popups allow-popups-to-escape-sandbox"></iframe>
 </div>
+{% include 'sankey_01.html' %}
 {% endblock %}

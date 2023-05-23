@@ -1,9 +1,323 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  {% load static %}
+  <style>
+  .section {
+    width: 100%;
+    color: white;
+  }
+  #sec2_txt,
+  #sec2_txt h2,
+  #sec2_txt ol,
+  #sec2_txt li,
+  #sec2_txt ul {
+    margin-left: 10px;
+  }
+
+  #section1 {
+    background-color: rgb(34, 34, 34);
+    height: 100vh;
+  }
+  #section2 {
+    background-color: #322535;
+    height: 80vh;
+  }
+  #section3 {
+    background-color: #1b1f23;
+    height: 80vh;
+    
+  }
+  #section3_img_area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+
+  #sec1_introduce {
+    background-color: rgb(34, 34, 34);
+    width: 90%;
+    color : white;
+    display: flex; 
+    flex-direction: column; /* 추가 */
+    justify-content: center; 
+    align-items: center; 
+    height: 80vh;
+  }
+
+  #person1{
+    width:800px;
+    background-color: rgba(21, 81, 83, 0.295);
+    color : white;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center;  
+    height: 80vh;
+  }
+
+  #person2{
+    width:800px;
+    background-color: rgba(37, 56, 13, 0.281);
+    color : white;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center; 
+    height: 80vh;
+    
+  }
+  #person3{
+    width:800px;
+    background-color: rgba(222, 184, 135, 0.411);
+    color : white;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center; 
+    height: 80vh;
+  }
+  #person4{
+    width:800px;
+    background-color: rgba(94, 176, 252, 0.336);
+    color : white;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center; 
+    height: 80vh;
+  }
+  #person5{
+    width:800px;
+    background-color: rgba(171, 97, 241, 0.329);
+    color : white;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center; 
+    height: 80vh;
+  }
+  #person6{
+    width:800px;
+    background-color: rgba(255, 130, 188, 0.336);
+    color : white;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center; 
+    height: 80vh;
+  }
+  #sec1_img_01{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;  
+    height: 80vh;
+  }
+
+  .swiper-slide {
+    width: 100%;
+    display: flex;
+    justify-content: baseline;
+    align-items: baseline;
+  }
+
+  .carousel-container {
+    position: relative;
+    height: 80vh;
+}
+
+.carousel-wrapper {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+}
+
+  
+  </style>
+{% endblock %}
+
 {% block content %}
 {% include 'navbar.html' %}
 
-<div class="container">
-  <h1>프로젝트 소개</h1>
-  <p>프로젝트의 배경, 목적, 참여 팀원 소개를 포함하는 섹션입니다.</p>
+<!------------------------- 섹션1 ----------------------------->
+<div class="section" id="section1">
+  <div class="sec_inner">
+    <section id="people" class="swiper-container">
+      <div class="swiper-wrapper" style="transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);">
+          <div class="people_title swiper-slide swiper-slide-active active" id="sec1_introduce">
+              <h1>Who we are</h1> 
+              <br>
+              <h2>LOGIN</h2>
+              <br>
+              <p> LOGIN 팀원들의 소개입니다.</p>
+          </div> 
+          <div class="person1 swiper-slide swiper-slide-next" id="person1">
+            <div class = "sec1_img_01" id ="sec1_img_01">
+              <img src="{% static 'image/person1.jpg' %}" width="250px" height="auto">
+            </div>
+              <h2>정지용(조장)</h2>
+              <br>
+              <h4>데이터 분석</h4>
+          </div> 
+          <div class="person2 swiper-slide" id="person2">
+            <div class = "sec1_img_01" id ="sec1_img_01">
+              <img src="{% static 'image/person2.jpg' %}" width="250px" height="auto">
+            </div>
+              <h2>이가연</h2>
+              <br>
+              <h4>데이터 분석</h4>
+          </div> 
+          <div class="person3 swiper-slide" id="person3">
+            <div class = "sec1_img_01" id ="sec1_img_01">
+              <img src="{% static 'image/person3.png' %}" width="250px" height="auto">
+            </div>
+              <h2>신호철</h2>
+              <br>
+              <h4>웹 크롤링</h4>
+              <br>
+              <h4>데이터 분석</h4> 
+          </div>
+          <div class="person4 swiper-slide" id="person4">
+            <div class = "sec1_img_01" id ="sec1_img_01">
+              <img src="{% static 'image/person4.png' %}" width="250px" height="auto">
+            </div>
+              <h2>김성진</h2>
+              <br>
+              <h4>웹 크롤링</h4>
+              <br>
+              <h4>데이터 분석</h4> 
+          </div>
+          <div class="person5 swiper-slide" id="person5">
+            <div class = "sec1_img_01" id ="sec1_img_01">
+              <img src="{% static 'image/sec2_img0.jpg' %}" width="250px" height="auto">
+            </div>
+              <h2>김만기</h2>
+              <br>
+              <h4>웹 크롤링</h4>
+              <br>
+              <h4>데이터 분석</h4>
+              <br>
+              <h4>DB 구축</h4> 
+          </div>
+          <div class="person6 swiper-slide" id="person6">
+            <div class = "sec1_img_01" id ="sec1_img_01">
+              <img src="{% static 'image/person6.jpg' %}" width="400px" height="auto">
+            </div>
+              <h2>김성동</h2>
+              <br>
+              <h4>웹 개발</h4>
+          </div>
+          <div class="swiper-button-next"></div>
+        </div>
+    </section>
+  </div>
 </div>
+
+<!------------------------- 섹션2 ----------------------------->
+<div class="section" id="section2">
+  <div class="row">
+    <!-- 이미지 슬라이드 영역 -->
+    <div class="col-md-6 order-md-2">
+      <div class="carousel-container">
+        <div class="carousel-wrapper">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'image/sec2_img0.jpg' %}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'image/sec2_img1.jpg' %}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'image/sec2_img2.jpg' %}" class="d-block w-100" alt="...">
+              </div>
+          <!-- Add more images as needed -->
+            </div>
+        <!-- Carousel content here -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 텍스트 영역 -->
+    <div class="col-md-6 order-md-1">
+      <div class="sec_inner">
+        <div class="text_area text_white">
+          <h1 class="sec_tit">What we do</h1>
+          <p class="sec_desc" id="sec2_txt">
+            <br><br><br>
+            <h2 id="sec2_txt">진행기획 (23.05.03 ~ 05.26)</h2>
+            <ol id="sec2_txt">
+              <li id="sec2_txt">웹크롤링으로 숙박업소 리뷰, 가격등 경쟁자들을 분석하고 비지니스 전략 수립</li>
+              <li id="sec2_txt">웹크롤링은 최대 19일까지 마치고 마지막주에는 데이터분석 및 웹개발, 발표물 제작등을 지원</li>
+              <li id="sec2_txt">최종적으로 분석한 결과물을 웹에 구현하여 사용자들이 결과물을 보고 사용할 수 있도록 함</li>
+              <li id="sec2_txt">22일부터 전원이 각자 맡은 부분의 파워포인트 발표물을 함께 제작</li>
+            </ol>
+            <br><br><br><br><br><br>
+            <h2 id="sec2_txt">분석 및 개발 내용</h2>
+            <ul id="sec2_txt">
+                <li id="sec2_txt">공공 데이터 수집 (김성동, 정지용) - 공공데이터 포털을 이용해 '교통 및 관광 로그' 데이터 수집</li>
+                <li id="sec2_txt">웹 크롤링 - 네이버 지도 (김만기), 야놀자 (신호철, 김성진)</li>
+                <li id="sec2_txt">DB 구축 (김만기) - AWS 서버에 PostgreSQL 설치, 숙박, 교통, 관광 데이터 전처리 및 db 추가, db 모델링</li>
+                <li id="sec2_txt">데이터 분석 - 관광지, 관광객 특징 분석 (정지용), 숙박업소 속성과 관광지 관련성 분석(이가연, 정지용)</li>
+                <li id="sec2_txt">웹 개발 - 프로젝트 수행내용 웹 표출을 위한 웹 페이지 개발 (김성동), 웹페이지 구성요소 설정, 홈, 프로젝트 소개, 프로젝트 코드 및 시각화 구축 코드 작성</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!------------------------- 섹션3 ----------------------------->
+<div class="section" id="section3">
+  <div class="sec_inner">
+    <div class="section3_txt_area">
+      <h2 class="sec_tit">How we work</h2>
+      <!-- More content here -->
+    </div>
+    <div class="section3_img_area" id="section3_img_area">
+      <a href="https://github.com/Ataraxia1001/Login_project">
+        <img src="{% static 'image/github_icon.png' %}" alt="Github Icon" width="300" height="300">
+      </a>
+      <a href="https://drive.google.com/drive/folders/1uVSPyyytCFSmUukXl3AIvJSD7HVxG-oa?usp=share_link">
+        <img src="{% static 'image/google_drive_icon.png' %}" alt="Google Drive Icon" width="300" height="300">
+      </a>
+      <a href="https://gamma.app/">
+        <img src="{% static 'image/gamma_icon.png' %}" alt="Gamma Icon" width="300" height="300">
+      </a>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
+{% block js %}
+<script>
+  new Swiper('#people', {
+    direction: 'horizontal',
+    slidesPerView: 'auto',
+    loop: true,
+
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+    },
+
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+
+    // And if we need scrollbar
+    scrollbar: {
+        el: '.swiper-scrollbar',
+    },
+});
+
+</script>
 {% endblock %}
