@@ -89,3 +89,9 @@ class Recommend_02new(models.Model):
     nearest_shopping_mall_distance = models.FloatField(null=True)
     avg_shopping_mall_distance = models.FloatField(null=True)
     label = models.IntegerField(null=True)
+
+class Sankey_01(models.Model):
+    source_region = models.CharField(max_length=255)
+    destination_Region = models.CharField(max_length=255)
+    inflow_outflow_Ratio = models.FloatField(null=True)
+    flow_direction_code = models.IntegerField(null=True) #(1: Inflow / 2: Outflow)
