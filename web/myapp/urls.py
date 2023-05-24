@@ -11,7 +11,7 @@ from django.conf.urls.static import static
 from django_plotly_dash.views import add_to_session
 from django.views.generic import TemplateView
 from .views.visualization_views import map
-from .views.visualization_views import map_01
+from .views.visualization_views import map_01, map_02, map_03, map_04
 from .views.visualization_views import gangnam_sankey
 
 
@@ -30,6 +30,9 @@ urlpatterns = [
     path('django_plotly_dash/', include('django_plotly_dash.urls')),
     path('map/', map, name='map'),
     path('map_01/', map_01, name='map_01'),
+    path('map_02/', map_02, name='map_02'),
+    path('map_03/', map_03, name='map_03'),    
+    path('map_04/', map_04, name='map_04'),    
     path('sankey_01/', gangnam_sankey, name='sankey_01'),
     path('recommend_02/', recommend_02, name='recommend_02'),
     path('recommend_03/', recommend_03, name='recommend_03'),

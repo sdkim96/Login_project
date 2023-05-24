@@ -95,3 +95,15 @@ class Sankey_01(models.Model):
     destination_Region = models.CharField(max_length=255)
     inflow_outflow_Ratio = models.FloatField(null=True)
     flow_direction_code = models.IntegerField(null=True) #(1: Inflow / 2: Outflow)
+
+class Map_03(models.Model):
+    longitude = models.FloatField()
+    latitude = models.FloatField()
+    province = models.CharField(max_length=50)
+    district = models.CharField(max_length=50)
+    tourist_spot = models.CharField(max_length=100)
+    address = models.CharField(max_length=200)
+    category_large = models.CharField(max_length=50)
+    category_medium = models.CharField(max_length=50)
+    rank = models.IntegerField()
+
