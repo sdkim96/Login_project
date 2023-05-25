@@ -1,28 +1,98 @@
 {% extends 'base.html' %}
-{% load plotly_dash %}
+{% block css %}
+<style>
+  .section-container{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+  }
+  .iframe-container{
+    width: 600px;
+    height: 600px;
+    margin: 0 25px; /* Add this line */
+  }
+  .iframe-container * {
+    vertical-align: top;
+  }
 
+  #second-container{
+    background-color: lightcoral;
+
+  }
+  #second-container *{
+    vertical-align: top;
+
+  }
+
+  #third-container{
+    background-color: lightgray;
+  }
+  #forth-container{
+    background-color: lightpink;
+  }
+</style>
+{% endblock %}
+{% load plotly_dash %}
+{% load static %}
 {% block content %}
 {% include 'navbar.html' %}
-<div class="introduce-content" id="introduce-content">
-  <h1>시각화 자료</h1>
-  <p>각종 다양한 시각화 자료입니다</p>
-</div> 
-<div class="dash-app-content" id="home-container">
-  <iframe src="/django_plotly_dash/app/BusStations/" style="
-    position: absolute;
-    top: 300px;
-    left: 200px;
+<div class="section-container" id="first-container">
+  <div id = 'first-first' class="iframe-container">
+    <h2>호텔 워드클라우드(인기태그)</h2>
+    <img src="{% static 'image/wordcloud1.png' %}" alt="Visualization Image">
+  </div>
+  <div id = 'first-second' class="iframe-container">
+    <h2>호텔 워드클라우드(인기없는 태그)</h2>
+    <img src="{% static 'image/wordcloud2.png' %}" alt="Visualization Image">
+  </div>
+</div>
+
+<div class="section-container" id="second-container">
+  <div id = 'second-first' class="iframe-container">
+    <iframe src="/map_02" style="
     width: 600px;
     height: 600px;
     " frameborder="0" sandbox="allow-downloads allow-scripts allow-same-origin allow-modals allow-popups allow-popups-to-escape-sandbox"></iframe>
-
-    <!-- 추가된 iframe -->
-    <iframe src="/map_01" style="
-    position: absolute;
-    top: 300px;
-    right: 200px;
-    width: 600px;
-    height: 583px;
-    " frameborder="0" sandbox="allow-downloads allow-scripts allow-same-origin allow-modals allow-popups allow-popups-to-escape-sandbox"></iframe>
+  </div>
+  <div id = 'second-second' class="iframe-container">
+    {{ plot_html|safe }}
+  </div>
 </div>
+
+<div class="section-container" id="third-container">
+  <div id="third-first" class="iframe-container">
+    <iframe src="/map_03" style="
+    width: 600px;
+    height: 600px;
+    " frameborder="0" sandbox="allow-downloads allow-scripts allow-same-origin allow-modals allow-popups allow-popups-to-escape-sandbox"></iframe>
+  </div>
+  <div id="third-second" class="iframe-container">
+    <iframe src="/map_04" style="
+      width: 600px;
+      height: 600px;
+      " frameborder="0" sandbox="allow-downloads allow-scripts allow-same-origin allow-modals allow-popups allow-popups-to-escape-sandbox"></iframe>
+    <!-- Include third-second content here -->
+  </div>
+</div>
+
+<div class="section-container" id="forth-container">
+  <div id="forth-first" class="iframe-container">
+    <img src="{% static 'image/visualization1.png' %}" alt="Visualization Image">
+  </div>
+  <div id="forth-second" class="iframe-container">
+    
+  </div>
+</div>
+
+<div class="section-container" id="fifth-container">
+  <div id="fifth-first" class="iframe-container">
+    {{ plot_div|safe }}
+  </div>
+  <div id="fifth-second" class="iframe-container">
+    <img src="{% static 'image/visualization2.png' %}" alt="Visualization Image" style="width:600px">
+  </div>
+</div>
+
+
+
 {% endblock %}

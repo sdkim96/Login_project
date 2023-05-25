@@ -31,8 +31,8 @@
                         - 업소 리스트를 네이버지도에서 검색후 숙박업 정보(별점, 후기 등) 수집
                 - 야놀자 (신호철, 김성진)
                         - 야놀자 홈페이지에서 서울의 '모텔/호텔' 숙박업 정보(별점, 후기 등) 수집
-        - DB 구축 ( 시도중, 김만기 )
-                - AWS 서버에 progresql 설치(완료, 김경훈님 도움)
+        - DB 구축 (김만기)
+                - AWS 서버에 PostgreSQL 설치(완료, 김경훈님 도움)
                 - 숙박, 교통, 관광 데이터 전처리 및 db 추가
                 - db 모델링
         - 데이터 분석
@@ -47,7 +47,7 @@
                         - (내용2) 관광지, 교통, 호텔위치 정보를 이용한 군집분석 (정지용)
                         - (내용3) 관광객이 중요시하는 주변 숙박업소 속성 분석(검색 기록로그 사용) (김만기)
                 - 크롤링 데이터(숙박업소 후기정보) 분석
-                        - (방법) 워드클라우드, 통계분석, , 
+                        - (방법) 워드클라우드, 통계분석
                         - (내용1) 야놀자 인기태그 및 별점별 후기 워드클라우드 (김성진)
                         - (내용2) 야놀자 호텔 유형별 속성 통계 분석 (신호철)
                         - (내용3) 네이버 지도의 "이런점이 좋아요" 워드클라우드, 빈도분석 (김만기)
@@ -74,3 +74,6 @@
                         - 지역별 검색건수 - https://datalab.visitkorea.or.kr/datalab/portal/bda/getDomInqCnt.do
                         - 지역별 유입,유출 방문객 - https://datalab.visitkorea.or.kr/datalab/portal/loc/getAreaDataForm.do# 
                         - 관광지 목록(위치) - https://datalab.visitkorea.or.kr/datalab/portal/loc/getTourLocalDataForm.do
+         - 호텔매출 관련 정보
+                - 통계청 https://kostat.go.kr/ansk/     
+                        검색어: 호텔매출
