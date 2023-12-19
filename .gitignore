@@ -6,3 +6,5 @@ web/env
 
 web/myapp/data/
 web/myapp/views/recommend_views.py
+
+venv/
