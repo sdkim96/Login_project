@@ -33,8 +33,8 @@ def create_folium_map_03():
     colors = [cmap(i) for i in labels % cmap.N]
     hex_colors = [mcolors.rgb2hex(color) for color in colors]
 
-    seoul_map = folium.Map(location=[37.55, 126.98], tiles='Stamen Terrain', zoom_start=12)
-    seoul_map2 = folium.Map(location=[37.55, 126.98], tiles='Stamen Terrain', zoom_start=12)
+    seoul_map = folium.Map(location=[37.55, 126.98], attr='Map data © OpenStreetMap contributors', zoom_start=12)
+    seoul_map2 = folium.Map(location=[37.55, 126.98], attr='Map data © OpenStreetMap contributors', zoom_start=12)
 
     for i in range(len(df['label'].unique())):   
         dfss = df[(df['label'] == i)]
